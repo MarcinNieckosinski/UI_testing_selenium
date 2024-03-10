@@ -1,4 +1,5 @@
 from selenium.common import NoSuchElementException
+from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
@@ -6,6 +7,11 @@ from selenium.webdriver.support import expected_conditions as ec
 
 
 class BasePage:
+
+    __twitter_button_locator = (By.XPATH, "//li[@class='social_twitter']")
+    __facebook_button_locator = (By.XPATH, "//li[@class='social_facebook']")
+    __linkedin_button_locator = (By.XPATH, "//li[@class='social_linkedin']")
+
     def __init__(self, driver: WebDriver):
         self._driver = driver
 
@@ -44,6 +50,15 @@ class BasePage:
 
     def _open_url(self, url: str):
         self._driver.get(url)
+
+    def click_on_twitter_button(self):
+        self._click(self.__twitter_button_locator)
+
+    def click_on_facebook_button(self):
+        self._click(self.__facebook_button_locator)
+
+    def click_on_linkedin_button(self):
+        self._click(self.__linkedin_button_locator)
 
     @property
     def current_url(self) -> str:
