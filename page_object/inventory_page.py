@@ -1,6 +1,7 @@
 from page_object.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.support.select import Select
 
 
 class InventoryPage(BasePage):
@@ -9,9 +10,9 @@ class InventoryPage(BasePage):
     __burger_menu_button = (By.ID, "react-burger-menu-btn")
     __add_to_cart_button = (By.ID, 'add-to-cart-{0}')
     __remove_button = (By.XPATH, "//button[@data-test='remove-{0}']")
-    __product_price = (By.XPATH, "(//div[@class='inventory_item_price')[{0}]")
-    __product_name = (By.XPATH, "(//div[@class='inventory_item_name')[{0}]")
-    __product_description = (By.XPATH, "(//div[@class='inventory_item_desc')[{0}]")
+    __product_price = (By.XPATH, "(//div[@class='inventory_item_price'])[{0}]")
+    __product_name = (By.XPATH, "(//div[@class='inventory_item_name '])[{0}]")
+    __product_description = (By.XPATH, "(//div[@class='inventory_item_desc'])[{0}]")
     __product_img = (By.XPATH, "//img[@alt='{0}']")
     __shopping_cart_badge = (By.CLASS_NAME, "shopping_cart_badge")
     __sort_select = (By.XPATH, "//select[@data-test='product_sort_container']")
@@ -26,6 +27,14 @@ class InventoryPage(BasePage):
     @property
     def shopping_cart_badge_value(self) -> str:
         return self._get_text(self.__shopping_cart_badge)
+
+    @property
+    def is_shopping_cart_badge_displayed(self) -> bool:
+        return super()._is_displayed(self.__shopping_cart_badge)
+
+    def sort_products(self, sort_option):
+        select = Select(super()._find(self.__sort_select))
+        select.select_by_value(sort_option)
 
     def is_cart_button_displayed(self) -> bool:
         return super()._is_displayed(self.__cart_button)

@@ -51,15 +51,6 @@ class BasePage:
     def _open_url(self, url: str):
         self._driver.get(url)
 
-    def click_on_twitter_button(self):
-        self._click(self.__twitter_button_locator)
-
-    def click_on_facebook_button(self):
-        self._click(self.__facebook_button_locator)
-
-    def click_on_linkedin_button(self):
-        self._click(self.__linkedin_button_locator)
-
     @property
     def current_url(self) -> str:
         return self._driver.current_url
