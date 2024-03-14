@@ -8,9 +8,9 @@ class CartPage(BasePage):
     __continue_shopping_button = (By.XPATH, "//div[@data-test='continue-shopping']")
     __checkout_button = (By.ID, "checkout")
     __product_name = (By.XPATH, "(//div[@class='inventory_item_name')[{0}]")
-    __product_description = (By.XPATH, "(//div[@class='inventory_item_desc')[{0}]")
-    __product_price = (By.XPATH, "(//div[@class='inventory_item_price')[{0}]")
-    __product_quantity = (By.XPATH, "(//div[@class='cart_quantity')[{0}]")
+    __product_description = (By.XPATH, "(//div[@class='inventory_item_desc'])[{0}]")
+    __product_price = (By.XPATH, "(//div[@class='inventory_item_price'])[{0}]")
+    __product_quantity = (By.XPATH, "(//div[@class='cart_quantity'])[{0}]")
     __remove_button = (By.XPATH, "//button[@data-test='remove-{0}']")
     __shopping_cart_badge = (By.CLASS_NAME, "shopping_cart_badge")
 
