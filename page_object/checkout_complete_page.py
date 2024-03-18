@@ -13,6 +13,10 @@ class CheckoutCompletePage(BasePage):
         super().__init__(driver)
 
     @property
+    def expected_url(self) -> str:
+        return self.__url
+
+    @property
     def thank_you_header_text(self) -> str:
         return super()._get_text(self.__thank_you_header)
 

@@ -64,3 +64,6 @@ class InventoryPage(BasePage):
     def get_product_description(self, product_number: int) -> str:
         return super()._get_text((self.__product_description[0],
                                   self.__product_description[1].format(product_number)), 3)
+
+    def click_cart_button(self):
+        super()._click(self.__cart_button)
