@@ -7,11 +7,6 @@ from selenium.webdriver.support import expected_conditions as ec
 
 
 class BasePage:
-
-    __twitter_button_locator = (By.XPATH, "//li[@class='social_twitter']")
-    __facebook_button_locator = (By.XPATH, "//li[@class='social_facebook']")
-    __linkedin_button_locator = (By.XPATH, "//li[@class='social_linkedin']")
-
     def __init__(self, driver: WebDriver):
         self._driver = driver
 

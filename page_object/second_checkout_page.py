@@ -5,13 +5,13 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 class SecondCheckoutPage(BasePage):
     __url = "https://www.saucedemo.com/checkout-step-two.html"
-    __payment_information_field = (By.XPATH, "div[@class='summary_value_label'])[1]")
-    __shipping_information_field = (By.XPATH, "div[@class='summary_value_label'])[2]")
-    __item_total_field = (By.XPATH, "div[@class='summary_subtotal_label')")
-    __item_tax_field = (By.XPATH, "div[@class='summary_tax_label')")
-    __total_amount_field = (By.XPATH, "div[@class='summary_total_label']")
+    __payment_information_field = (By.XPATH, "(//div[@class='summary_value_label'])[1]")
+    __shipping_information_field = (By.XPATH, "(//div[@class='summary_value_label'])[2]")
+    __item_total_field = (By.XPATH, "(//div[@class='summary_subtotal_label'])")
+    __item_tax_field = (By.XPATH, "(//div[@class='summary_tax_label'])")
+    __total_amount_field = (By.CLASS_NAME, "summary_total_label")
     __product_price = (By.XPATH, "(//div[@class='inventory_item_price'])[{0}]")
-    __product_name = (By.XPATH, "(//div[@class='inventory_item_name '])[{0}]")
+    __product_name = (By.XPATH, "(//div[@class='inventory_item_name'])[{0}]")
     __product_description = (By.XPATH, "(//div[@class='inventory_item_desc'])[{0}]")
     __product_quantity = (By.XPATH, "(//div[@class='cart_quantity'])[{0}]")
     __cancel_button = (By.ID, "cancel")

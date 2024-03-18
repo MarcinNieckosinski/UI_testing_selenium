@@ -5,9 +5,9 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 class CartPage(BasePage):
     __url = "https://www.saucedemo.com/cart.html"
-    __continue_shopping_button = (By.XPATH, "//div[@data-test='continue-shopping']")
+    __continue_shopping_button = (By.ID, "continue-shopping")
     __checkout_button = (By.ID, "checkout")
-    __product_name = (By.XPATH, "(//div[@class='inventory_item_name')[{0}]")
+    __product_name = (By.XPATH, "(//div[@class='inventory_item_name'])[{0}]")
     __product_description = (By.XPATH, "(//div[@class='inventory_item_desc'])[{0}]")
     __product_price = (By.XPATH, "(//div[@class='inventory_item_price'])[{0}]")
     __product_quantity = (By.XPATH, "(//div[@class='cart_quantity'])[{0}]")
@@ -39,7 +39,7 @@ class CartPage(BasePage):
 
     def get_product_description(self, product_number: int) -> str:
         return super()._get_text((self.__product_description[0],
-                                  self.__product_description[1].format(product_number)), 3)
+                                  self.__product_description[1].format(product_number)), 5)
 
     def get_product_quantity(self, product_number: int) -> str:
         return super()._get_text((self.__product_quantity[0],

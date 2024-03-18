@@ -9,7 +9,7 @@ class FirstCheckoutPage(BasePage):
     __last_name_field = (By.XPATH, "//input[@data-test='lastName']")
     __zip_postal_code_field = (By.XPATH, "//input[@data-test='postalCode']")
     __cancel_button = (By.XPATH, "//button[@data-test='cancel']")
-    __continue_button = (By.XPATH, "//button[@data-test='continue']")
+    __continue_button = (By.ID, "continue")
     __error_field = (By.XPATH, "//h3[@data-test='error']")
 
     def __init__(self, driver: WebDriver):

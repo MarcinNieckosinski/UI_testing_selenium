@@ -171,6 +171,6 @@ class TestSecondCheckoutPagePositiveScenarios:
 
         assert second_checkout_page.payment_information == "SauceCard #31337"
         assert second_checkout_page.shipping_information == "Free Pony Express Delivery!"
-        assert second_checkout_page.item_total == "$95.97"
-        assert second_checkout_page.item_tax == "$7.68"
-        assert second_checkout_page.total_amount == "$103.65"
+        assert second_checkout_page.item_total == "Item total: $95.97"
+        assert second_checkout_page.item_tax == "Tax: $7.68"
+        assert second_checkout_page.total_amount == "Total: $103.65"
